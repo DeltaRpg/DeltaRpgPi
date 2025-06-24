@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://hdttcxawlkl6"]
+
+[ext_resource type="AudioStream" uid="uid://b4qlpntl3ne5u" path="res://delta rpg (assets)/gxscc/01 baião_msc_inicial.WAV" id="1_6kaec"]
+
+[node name="MusicPlayerMenuInicial" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_6kaec")
+autoplay = true

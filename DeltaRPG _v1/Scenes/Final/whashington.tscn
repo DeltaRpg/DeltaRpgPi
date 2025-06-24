@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0u7ry3nc2tgo"]
+
+[ext_resource type="Script" uid="uid://qfhf60hphh3c" path="res://Scenes/Final/whashington.gd" id="1_ourit"]
+[ext_resource type="Texture2D" uid="uid://dobx66k308yvr" path="res://delta rpg (assets)/Personagens/Washington brasileiro (COMPLETO)/washington_andando_frente.png" id="2_ourit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us5jg"]
+radius = 17.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajd05"]
+atlas = ExtResource("2_ourit")
+region = Rect2(0, 32, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5lxf"]
+atlas = ExtResource("2_ourit")
+region = Rect2(21, 32, 21, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4huel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajd05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5lxf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcai7"]
+radius = 30.0666
+
+[node name="Whashington" type="CharacterBody2D"]
+script = ExtResource("1_ourit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_us5jg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4huel")
+autoplay = "default"
+frame_progress = 0.587756
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_dcai7")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://im22fqqsxthm"]
+
+[ext_resource type="Texture2D" uid="uid://3j2c0kt1y0cl" path="res://assets/Icons/Icons_20.png" id="1_o86c4"]
+
+[node name="toch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2(26, 138)
+rotation = -1.5708
+scale = Vector2(2, 4.57)
+texture_normal = ExtResource("1_o86c4")
+action = "move_left"
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2(387, 79)
+rotation = 1.5708
+scale = Vector2(2, 4.57)
+texture_normal = ExtResource("1_o86c4")
+action = "move_right"
+
+[node name="up" type="TouchScreenButton" parent="."]
+position = Vector2(181, -87)
+rotation = 6.28319
+scale = Vector2(2, 4.57)
+texture_normal = ExtResource("1_o86c4")
+action = "move_up"
+
+[node name="down" type="TouchScreenButton" parent="."]
+position = Vector2(249, 292)
+rotation = 3.14159
+scale = Vector2(2, 4.57)
+texture_normal = ExtResource("1_o86c4")
+action = "move_down"

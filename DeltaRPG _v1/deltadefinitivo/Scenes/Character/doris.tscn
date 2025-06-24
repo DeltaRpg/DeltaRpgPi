@@ -1,0 +1,205 @@
+[gd_scene load_steps=30 format=3 uid="uid://c4kl0fd2hb0s1"]
+
+[ext_resource type="Script" uid="uid://ylbqr1oy28f3" path="res://Scripts/characters/doris.gd" id="1_k6rel"]
+[ext_resource type="Texture2D" uid="uid://bl1m1dwvw3wn5" path="res://Assets/Personagens/Doris/doris_andando_costas.png" id="1_rudad"]
+[ext_resource type="Texture2D" uid="uid://blibervn306bv" path="res://Assets/Personagens/Doris/doris_andando_direita.png" id="2_k6rel"]
+[ext_resource type="Texture2D" uid="uid://ctixnjcjensy0" path="res://Assets/Personagens/Doris/doris_andando_esquerda.png" id="3_ubfpb"]
+[ext_resource type="Texture2D" uid="uid://bhrlpukrgcaj1" path="res://Assets/Personagens/Doris/doris_parada_frente.png" id="4_kmhuo"]
+[ext_resource type="PackedScene" uid="uid://t4plda5f2sm1" path="res://Dialogue/dialogue.tscn" id="6_ubfpb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ququg"]
+atlas = ExtResource("1_rudad")
+region = Rect2(0, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mtcg"]
+atlas = ExtResource("1_rudad")
+region = Rect2(21, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfthu"]
+atlas = ExtResource("1_rudad")
+region = Rect2(42, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23sw7"]
+atlas = ExtResource("1_rudad")
+region = Rect2(0, 68, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wemj"]
+atlas = ExtResource("1_rudad")
+region = Rect2(21, 68, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoy1w"]
+atlas = ExtResource("1_rudad")
+region = Rect2(42, 68, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1bo7"]
+atlas = ExtResource("2_k6rel")
+region = Rect2(0, 32, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kdxf"]
+atlas = ExtResource("2_k6rel")
+region = Rect2(21, 32, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh1up"]
+atlas = ExtResource("2_k6rel")
+region = Rect2(42, 32, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrgtu"]
+atlas = ExtResource("2_k6rel")
+region = Rect2(0, 64, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdcij"]
+atlas = ExtResource("2_k6rel")
+region = Rect2(21, 64, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbyx4"]
+atlas = ExtResource("2_k6rel")
+region = Rect2(42, 64, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymass"]
+atlas = ExtResource("3_ubfpb")
+region = Rect2(0, 32, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj4a1"]
+atlas = ExtResource("3_ubfpb")
+region = Rect2(21, 32, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2xyk"]
+atlas = ExtResource("3_ubfpb")
+region = Rect2(42, 32, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg82a"]
+atlas = ExtResource("3_ubfpb")
+region = Rect2(0, 64, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os85c"]
+atlas = ExtResource("3_ubfpb")
+region = Rect2(21, 64, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu2we"]
+atlas = ExtResource("3_ubfpb")
+region = Rect2(42, 64, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdift"]
+atlas = ExtResource("4_kmhuo")
+region = Rect2(0, 0, 21, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asqex"]
+atlas = ExtResource("4_kmhuo")
+region = Rect2(0, 0, 21, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4j0dw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ququg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mtcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfthu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23sw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wemj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoy1w")
+}],
+"loop": true,
+"name": &"costa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1bo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kdxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh1up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrgtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdcij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbyx4")
+}],
+"loop": true,
+"name": &"direita",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymass")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj4a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2xyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg82a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os85c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu2we")
+}],
+"loop": true,
+"name": &"esquerda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdift")
+}],
+"loop": true,
+"name": &"frente",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asqex")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sayir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3kfjt"]
+radius = 33.8378
+
+[node name="Doris" type="CharacterBody2D"]
+script = ExtResource("1_k6rel")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4j0dw")
+animation = &"idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sayir")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3kfjt")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Dialogue" parent="." instance=ExtResource("6_ubfpb")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

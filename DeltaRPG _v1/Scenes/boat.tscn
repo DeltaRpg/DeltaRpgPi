@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://wknhhoy0gkhi"]
+
+[ext_resource type="Script" uid="uid://c3olmq1g18u34" path="res://Scripts/boat.gd" id="1_yq547"]
+[ext_resource type="Texture2D" uid="uid://c8cjhfo3dadpk" path="res://delta rpg (assets)/barcos/boat/boat0001-sheet.png" id="2_g7r5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq547"]
+size = Vector2(22, 25.75)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v45yh"]
+radius = 16.4924
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_badgh"]
+atlas = ExtResource("2_g7r5y")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcwdh"]
+atlas = ExtResource("2_g7r5y")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdcrg"]
+atlas = ExtResource("2_g7r5y")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i231"]
+atlas = ExtResource("2_g7r5y")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o88gw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_badgh")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcwdh")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdcrg")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i231")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Boat" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_yq547")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_yq547")
+
+[node name="BoatArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoatArea"]
+shape = SubResource("CircleShape2D_v45yh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_o88gw")
+animation = &"up"
+autoplay = "right"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.6, 0.6)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

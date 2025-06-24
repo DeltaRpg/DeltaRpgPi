@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://8l6knr6lhhyr"]
+
+[ext_resource type="Script" uid="uid://djt4b3xpvnea" path="res://Scenes/Fases/saeb.gd" id="1_o4alj"]
+[ext_resource type="Texture2D" uid="uid://bcki0k2pym4yb" path="res://Assets/animais/Basic Asset Pack/Basic Animal Animations/Clucking Chicken/CluckingChicken.png" id="1_yvp5s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4piju"]
+radius = 25.0
+
+[node name="Saeb" type="Area2D"]
+script = ExtResource("1_o4alj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yvp5s")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4piju")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

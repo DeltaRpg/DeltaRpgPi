@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6gev67183dbw"]
+
+[ext_resource type="PackedScene" uid="uid://bscpu675mc4gw" path="res://Scenes/control.tscn" id="1_dg43f"]
+[ext_resource type="Script" uid="uid://dc21sg248fajn" path="res://Scenes/game.gd" id="1_ttu4s"]
+[ext_resource type="PackedScene" uid="uid://p0ydis3xkyd7" path="res://Scenes/terrain_manager.scn" id="1_xs8lx"]
+[ext_resource type="PackedScene" uid="uid://wknhhoy0gkhi" path="res://Scenes/boat.tscn" id="3_dg43f"]
+[ext_resource type="PackedScene" uid="uid://c3dekfyifs5bt" path="res://Scenes/Character/fem.tscn" id="3_i3y7v"]
+[ext_resource type="PackedScene" uid="uid://dooqg8q06tgp" path="res://Scenes/fish.tscn" id="4_0q8wj"]
+[ext_resource type="PackedScene" uid="uid://c4kl0fd2hb0s1" path="res://Scenes/Character/doris.tscn" id="7_i3y7v"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ttu4s")
+
+[node name="TerrainManager" parent="." instance=ExtResource("1_xs8lx")]
+position = Vector2(-34, -3)
+
+[node name="Fem" parent="." instance=ExtResource("3_i3y7v")]
+
+[node name="Boat" parent="." instance=ExtResource("3_dg43f")]
+position = Vector2(-328, 125)
+
+[node name="Camera2D2" type="Camera2D" parent="Boat"]
+
+[node name="Doris" parent="Boat" instance=ExtResource("7_i3y7v")]
+position = Vector2(116, -154)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="UI" instance=ExtResource("1_dg43f")]
+visible = false
+scale = Vector2(1.38358, 2.88112)
+
+[node name="Peixes" type="Node" parent="."]
+
+[node name="Fish" parent="Peixes" instance=ExtResource("4_0q8wj")]
+position = Vector2(-128, 173)
+numero = 6
+
+[node name="Fish2" parent="Peixes" instance=ExtResource("4_0q8wj")]
+position = Vector2(-128, 374)
+numero = 6
+
+[node name="Fish3" parent="Peixes" instance=ExtResource("4_0q8wj")]
+position = Vector2(-171, 503)
+numero = 6
+
+[node name="Fish4" parent="Peixes" instance=ExtResource("4_0q8wj")]
+position = Vector2(-83, 456)
+numero = 8
+
+[node name="Fish5" parent="Peixes" instance=ExtResource("4_0q8wj")]
+position = Vector2(38, 207)
+numero = 1
+
+[node name="Fish6" parent="Peixes" instance=ExtResource("4_0q8wj")]
+position = Vector2(-312, 336)
+numero = 2
+
+[node name="fish7" parent="Peixes" instance=ExtResource("4_0q8wj")]
+position = Vector2(-157, 128)
+numero = 3
+
+[node name="Fish8" parent="Peixes" instance=ExtResource("4_0q8wj")]
+position = Vector2(-59, 130)
+numero = 4
+
+[connection signal="pergunta_finalizada" from="UI/Control" to="." method="_on_control_pergunta_finalizada"]

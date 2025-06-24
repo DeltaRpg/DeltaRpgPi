@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dooqg8q06tgp"]
+
+[ext_resource type="Texture2D" uid="uid://drfj0t2vrml0v" path="res://delta rpg (assets)/Icons/Icons_07.png" id="1_2wdk7"]
+[ext_resource type="Script" uid="uid://cgrerkxcvcbyl" path="res://Scripts/fish.gd" id="1_ml2j2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2wdk7"]
+radius = 21.0
+
+[node name="Fish" type="Area2D"]
+collision_mask = 8
+script = ExtResource("1_ml2j2")
+imagem = ExtResource("1_2wdk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2wdk7")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2wdk7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl6ba5aqj7i2q"]
+
+[ext_resource type="Script" uid="uid://dr5fgfl8f26gl" path="res://Scripts/piratinga_dourado.gd" id="1_jryw6"]
+[ext_resource type="Texture2D" uid="uid://ctmakmtji7pps" path="res://assets/Icons/Icons_04.png" id="1_uggc3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jryw6"]
+radius = 24.0
+
+[node name="PiratingaDourado" type="Area2D"]
+script = ExtResource("1_jryw6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uggc3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jryw6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

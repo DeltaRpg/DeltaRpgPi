@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://b54v4lcn1s6s5"]
+
+[ext_resource type="Script" uid="uid://dmf28tyjt0ydw" path="res://Scenes/Character/npc/doris.gd" id="1_jvox8"]
+[ext_resource type="Texture2D" uid="uid://bhrlpukrgcaj1" path="res://Assets/Personagens/Doris/doris_parada_frente.png" id="1_q5m7c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvox8"]
+atlas = ExtResource("1_q5m7c")
+region = Rect2(0, 0, 21, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dymh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvox8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us5jg"]
+radius = 10.2956
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcai7"]
+radius = 29.6142
+
+[node name="Doris" type="CharacterBody2D"]
+script = ExtResource("1_jvox8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dymh8")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_us5jg")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_dcai7")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

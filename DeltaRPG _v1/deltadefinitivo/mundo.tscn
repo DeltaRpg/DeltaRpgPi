@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh3ys45j34q4q"]
+
+[ext_resource type="PackedScene" uid="uid://ce746bj02hayt" path="res://Scenes/Fases/fase_1.tscn" id="1_fw4w5"]
+[ext_resource type="PackedScene" uid="uid://bscpu675mc4gw" path="res://Scenes/control.tscn" id="2_otwa2"]
+[ext_resource type="PackedScene" uid="uid://gth21bnt7id" path="res://Scenes/Fases/saeb_quest.tscn" id="3_aou4a"]
+
+[node name="Mundo" type="Node"]
+
+[node name="Fase1" parent="." instance=ExtResource("1_fw4w5")]
+
+[node name="Quest" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="Quest" instance=ExtResource("2_otwa2")]
+
+[node name="Saeb_quest" parent="Quest" instance=ExtResource("3_aou4a")]

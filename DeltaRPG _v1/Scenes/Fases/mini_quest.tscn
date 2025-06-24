@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://cys0khpbcht8x"]
+
+[ext_resource type="Texture2D" uid="uid://cpxlxldo3gajs" path="res://delta rpg (assets)/Art/inventory-background.png" id="1_mwi4w"]
+[ext_resource type="Script" uid="uid://dcryy4seluucs" path="res://Scenes/Fases/mini_quest.gd" id="1_py02a"]
+
+[node name="Mini_quest" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+script = ExtResource("1_py02a")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 536.0
+offset_bottom = -203.0
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 538.0
+offset_bottom = 440.0
+texture = ExtResource("1_mwi4w")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Label" type="Label" parent="Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 11.0
+offset_right = 535.0
+offset_bottom = 242.0
+text = "(Miniteste) Alisson saiu de Massapê do Piauí com destino a Picos
+dirigindo a ambulância da UBAS com uma velocidade média de 
+80 km/h, levando 45 minutos para fazer esse trajeto. No percurso 
+de volta, a velocidade média foi reduzida para 60 km/h.
+
+Quanto tempo durou o percurso de volta?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 195.0
+offset_right = 127.0
+offset_bottom = 366.0
+
+[node name="ButtonA" type="Button" parent="Panel/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "A) 27 Minutos "
+
+[node name="ButtonB" type="Button" parent="Panel/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "B) 34 Minutos"
+
+[node name="ButtonC" type="Button" parent="Panel/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "C) 60 Minutos"
+
+[node name="ButtonD" type="Button" parent="Panel/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "D) 65 Minutos"
+
+[node name="ButtonE" type="Button" parent="Panel/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "E) 80 Minutos"
+
+[node name="Label2" type="Label" parent="Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 399.0
+offset_right = 468.0
+offset_bottom = 422.0
+
+[connection signal="pressed" from="Panel/NinePatchRect/VBoxContainer/ButtonA" to="." method="_on_button_a_pressed"]
+[connection signal="pressed" from="Panel/NinePatchRect/VBoxContainer/ButtonB" to="." method="_on_button_b_pressed"]
+[connection signal="pressed" from="Panel/NinePatchRect/VBoxContainer/ButtonC" to="." method="_on_button_c_pressed"]
+[connection signal="pressed" from="Panel/NinePatchRect/VBoxContainer/ButtonD" to="." method="_on_button_d_pressed"]
+[connection signal="pressed" from="Panel/NinePatchRect/VBoxContainer/ButtonE" to="." method="_on_button_e_pressed"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbptt0oqhu2kc"]
+
+[ext_resource type="Texture2D" uid="uid://cpxlxldo3gajs" path="res://delta rpg (assets)/Art/inventory-background.png" id="1_6s66e"]
+[ext_resource type="FontFile" uid="uid://bldtxaiaxx772" path="res://delta rpg (assets)/minecraft/Minecraft.ttf" id="2_smvdo"]
+
+[node name="EntrarNoBarco" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 73.0
+offset_bottom = 29.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+z_index = 4096
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 29.0
+texture = ExtResource("1_6s66e")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Label" type="Label" parent="Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 116.0
+offset_bottom = 53.0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("2_smvdo")
+text = "Aperte E 
+para entrar"

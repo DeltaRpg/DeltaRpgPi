@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6ogn1w1n71jw"]
+
+[ext_resource type="Script" uid="uid://bydm5dvithgg6" path="res://Scenes/Fases/mini_teste.gd" id="1_op3cy"]
+[ext_resource type="Texture2D" uid="uid://cvhwb017d0uxm" path="res://delta rpg (assets)/animais/FreeAnimalPack/FrogIdle.png" id="2_gs50o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi1bw"]
+atlas = ExtResource("2_gs50o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f3ku"]
+atlas = ExtResource("2_gs50o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15sdg"]
+atlas = ExtResource("2_gs50o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ik3"]
+atlas = ExtResource("2_gs50o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gtije"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi1bw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f3ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15sdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7ik3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4piju"]
+radius = 25.0
+
+[node name="MiniTeste" type="Area2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_op3cy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gtije")
+animation = &"idle"
+frame_progress = 0.861434
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4piju")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

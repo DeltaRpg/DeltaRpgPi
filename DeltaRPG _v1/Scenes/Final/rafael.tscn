@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://n4r1nnbdgvca"]
+
+[ext_resource type="Script" uid="uid://coxjnusr10rra" path="res://Scenes/Final/rafael.gd" id="1_6k7wr"]
+[ext_resource type="Texture2D" uid="uid://ots43apesei3" path="res://delta rpg (assets)/Personagens/rafael (COMPLETO)/rafael_andando_frente.png" id="2_6k7wr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us5jg"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcai7"]
+radius = 30.0666
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a348t"]
+atlas = ExtResource("2_6k7wr")
+region = Rect2(0, 32, 21, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l4n3"]
+atlas = ExtResource("2_6k7wr")
+region = Rect2(21, 32, 21, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tql5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a348t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l4n3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Rafael" type="CharacterBody2D"]
+script = ExtResource("1_6k7wr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_us5jg")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_dcai7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tql5j")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.467697
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

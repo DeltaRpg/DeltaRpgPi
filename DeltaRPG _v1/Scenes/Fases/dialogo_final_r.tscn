@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://byqq0ygbc5grl"]
+
+[ext_resource type="Script" uid="uid://b2m644n6nx7k0" path="res://Scripts/Fases/Fase1/dialogo_final_r.gd" id="1_o5ius"]
+[ext_resource type="Texture2D" uid="uid://cpxlxldo3gajs" path="res://delta rpg (assets)/Art/inventory-background.png" id="2_5wax6"]
+[ext_resource type="FontFile" uid="uid://bldtxaiaxx772" path="res://delta rpg (assets)/minecraft/Minecraft.ttf" id="3_4a5hl"]
+
+[node name="DialogoFinalR" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+script = ExtResource("1_o5ius")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 539.0
+offset_bottom = 275.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+layout_mode = 0
+offset_right = 543.0
+offset_bottom = 400.0
+texture = ExtResource("2_5wax6")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Label" type="Label" parent="Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 74.0
+offset_right = 526.0
+offset_bottom = 335.0
+theme_override_fonts/font = ExtResource("3_4a5hl")
+
+[node name="Nome" type="Label" parent="Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 30.0
+offset_right = 175.0
+offset_bottom = 54.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_4a5hl")
+text = "Doutor Teles"

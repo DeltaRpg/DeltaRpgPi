@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://wknhhoy0gkhi"]
+
+[ext_resource type="Texture2D" uid="uid://bvvknk8jhxtjw" path="res://assets/JEEP TOP DOWN/Black/Black_JEEP_CLEAN_8D_000-sheet.png" id="1_8gfhl"]
+[ext_resource type="Script" uid="uid://c3olmq1g18u34" path="res://Scripts/boat.gd" id="1_yq547"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq547"]
+size = Vector2(37, 27.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v45yh"]
+radius = 52.345
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq547"]
+atlas = ExtResource("1_8gfhl")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v45yh"]
+atlas = ExtResource("1_8gfhl")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmtym"]
+atlas = ExtResource("1_8gfhl")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0avvy"]
+atlas = ExtResource("1_8gfhl")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o88gw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq547")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v45yh")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmtym")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0avvy")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Boat" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_yq547")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 2)
+shape = SubResource("RectangleShape2D_yq547")
+
+[node name="BoatArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoatArea"]
+visible = false
+shape = SubResource("CircleShape2D_v45yh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o88gw")
+animation = &"up"
+autoplay = "right"

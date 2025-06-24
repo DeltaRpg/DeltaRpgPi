@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwsmc57asappo"]
+
+[ext_resource type="Script" uid="uid://brt6w8rl8tphd" path="res://Scripts/characters/macyrajara.gd" id="1_b62q4"]
+[ext_resource type="Texture2D" uid="uid://weveh1dxlso3" path="res://delta rpg (assets)/Personagens/Macyrajara/parada_direita.png" id="2_2uu61"]
+[ext_resource type="Texture2D" uid="uid://c8cjhfo3dadpk" path="res://delta rpg (assets)/barcos/boat/boat0001-sheet.png" id="2_44qje"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dymh8"]
+atlas = ExtResource("2_2uu61")
+region = Rect2(0, 0, 20, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dymh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dymh8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcai7"]
+radius = 17.0294
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44qje"]
+radius = 16.0
+
+[node name="Macyrajara" type="CharacterBody2D"]
+collision_mask = 9
+script = ExtResource("1_b62q4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, 14)
+rotation = -1.5708
+scale = Vector2(0.6, 0.64)
+texture = ExtResource("2_44qje")
+hframes = 7
+vframes = 7
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 6)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_dymh8")
+animation = &"idle"
+frame_progress = 0.1674
+flip_h = true
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-1, 11)
+shape = SubResource("CircleShape2D_dcai7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("CircleShape2D_44qje")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

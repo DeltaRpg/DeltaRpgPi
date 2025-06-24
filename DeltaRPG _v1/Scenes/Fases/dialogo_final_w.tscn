@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjba6xfsdq0g5"]
+
+[ext_resource type="Script" uid="uid://biqpn6e6djpim" path="res://Scripts/Fases/Fase1/dialogo_final_w.gd" id="1_twry4"]
+[ext_resource type="Texture2D" uid="uid://cpxlxldo3gajs" path="res://delta rpg (assets)/Art/inventory-background.png" id="2_e1s73"]
+[ext_resource type="FontFile" uid="uid://bldtxaiaxx772" path="res://delta rpg (assets)/minecraft/Minecraft.ttf" id="3_yr63j"]
+
+[node name="DialogoFinalW" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+script = ExtResource("1_twry4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 539.0
+offset_bottom = 275.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+layout_mode = 0
+offset_right = 543.0
+offset_bottom = 400.0
+texture = ExtResource("2_e1s73")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Label" type="Label" parent="Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 77.685
+offset_right = 650.0
+offset_bottom = 338.685
+theme_override_fonts/font = ExtResource("3_yr63j")
+
+[node name="Nome" type="Label" parent="Panel/NinePatchRect"]
+layout_mode = 0
+offset_right = 626.0
+offset_bottom = 100.0
+text = "Doutor Chico"

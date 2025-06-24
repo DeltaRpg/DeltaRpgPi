@@ -1,0 +1,133 @@
+[gd_scene load_steps=21 format=3 uid="uid://ce746bj02hayt"]
+
+[ext_resource type="Script" uid="uid://rfdyo23km63g" path="res://Scripts/Fases/Fase1/fase_1.gd" id="1_b2sct"]
+[ext_resource type="PackedScene" uid="uid://chssjkm66nmrx" path="res://Scenes/mapa.tscn" id="2_gxej0"]
+[ext_resource type="PackedScene" uid="uid://wknhhoy0gkhi" path="res://Scenes/boat.tscn" id="4_yt2gv"]
+[ext_resource type="PackedScene" uid="uid://dooqg8q06tgp" path="res://Scenes/fish.tscn" id="5_dsyea"]
+[ext_resource type="PackedScene" uid="uid://8l6knr6lhhyr" path="res://Scenes/Fases/saeb.tscn" id="8_2pt8r"]
+[ext_resource type="PackedScene" uid="uid://dw358cl22pdwr" path="res://Scenes/Fases/DesafioFinal.tscn" id="8_d0ggg"]
+[ext_resource type="PackedScene" uid="uid://dvl5f8pbxif0o" path="res://Scenes/Fases/enem.tscn" id="8_skiid"]
+[ext_resource type="PackedScene" uid="uid://b6m01in6m6qc7" path="res://Scenes/Fases/enem_quest.tscn" id="9_h28r4"]
+[ext_resource type="PackedScene" uid="uid://b6ogn1w1n71jw" path="res://Scenes/Fases/mini_teste.tscn" id="9_ilp3r"]
+[ext_resource type="PackedScene" uid="uid://bscpu675mc4gw" path="res://Scenes/control.tscn" id="10_sb4wv"]
+[ext_resource type="PackedScene" uid="uid://gth21bnt7id" path="res://Scenes/Fases/saeb_quest.tscn" id="12_b2sct"]
+[ext_resource type="PackedScene" uid="uid://b54v4lcn1s6s5" path="res://Scenes/Character/npc/doris.tscn" id="12_l502o"]
+[ext_resource type="PackedScene" uid="uid://cys0khpbcht8x" path="res://Scenes/Fases/mini_quest.tscn" id="14_d0ggg"]
+[ext_resource type="PackedScene" uid="uid://btiacj1ixc743" path="res://Scenes/Fases/DesafioFinal_quest.tscn" id="14_gxej0"]
+[ext_resource type="PackedScene" uid="uid://cwsmc57asappo" path="res://Scenes/Character/npc/macyrajara.tscn" id="14_ilp3r"]
+[ext_resource type="PackedScene" uid="uid://dtnlmp574jq2a" path="res://Scenes/Fases/missao_dialogo.tscn" id="14_l502o"]
+[ext_resource type="PackedScene" uid="uid://dbptt0oqhu2kc" path="res://Scenes/entrar_no_barco.tscn" id="18_f076y"]
+[ext_resource type="PackedScene" uid="uid://dp1qh464hjg86" path="res://Scenes/Fases/macy_dialoago.tscn" id="18_icve5"]
+
+[sub_resource type="TileSet" id="TileSet_gxej0"]
+physics_layer_0/collision_layer = 9
+physics_layer_0/collision_mask = 9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2sct"]
+size = Vector2(218, 58)
+
+[node name="Fase1" type="Node2D"]
+script = ExtResource("1_b2sct")
+
+[node name="Mapa" parent="." instance=ExtResource("2_gxej0")]
+tile_set = SubResource("TileSet_gxej0")
+
+[node name="Macyrajara" parent="." instance=ExtResource("14_ilp3r")]
+position = Vector2(513, -302)
+
+[node name="WaterArea" type="Area2D" parent="."]
+position = Vector2(81, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea"]
+position = Vector2(402, 48)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_b2sct")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WaterArea"]
+position = Vector2(490, 179)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_b2sct")
+
+[node name="Doris" parent="." instance=ExtResource("12_l502o")]
+position = Vector2(416, 532)
+
+[node name="Boat" parent="." instance=ExtResource("4_yt2gv")]
+position = Vector2(687, 272)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(298, 472)
+
+[node name="Peixes" type="Node" parent="."]
+
+[node name="Fish" parent="Peixes" instance=ExtResource("5_dsyea")]
+position = Vector2(466, 87)
+numero = 5
+
+[node name="Fish2" parent="Peixes" instance=ExtResource("5_dsyea")]
+position = Vector2(721, 82)
+numero = 5
+
+[node name="Fish3" parent="Peixes" instance=ExtResource("5_dsyea")]
+position = Vector2(247, 40)
+
+[node name="Fish4" parent="Peixes" instance=ExtResource("5_dsyea")]
+position = Vector2(466, 87)
+numero = 5
+
+[node name="Fish5" parent="Peixes" instance=ExtResource("5_dsyea")]
+position = Vector2(952, 49)
+numero = 6
+
+[node name="Fish6" parent="Peixes" instance=ExtResource("5_dsyea")]
+position = Vector2(541, 236)
+numero = 7
+
+[node name="Fish7" parent="Peixes" instance=ExtResource("5_dsyea")]
+position = Vector2(39, 70)
+numero = 1
+
+[node name="Fish8" parent="Peixes" instance=ExtResource("5_dsyea")]
+position = Vector2(565, -40)
+numero = 8
+
+[node name="Enem" parent="." instance=ExtResource("8_skiid")]
+position = Vector2(293, 556)
+
+[node name="Saeb" parent="." instance=ExtResource("8_2pt8r")]
+position = Vector2(371, 602)
+
+[node name="MiniTeste" parent="." instance=ExtResource("9_ilp3r")]
+position = Vector2(241, 552)
+
+[node name="cocal" parent="." instance=ExtResource("8_d0ggg")]
+position = Vector2(543, -387)
+
+[node name="Quest" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="Quest" instance=ExtResource("10_sb4wv")]
+
+[node name="Enem_quest" parent="Quest" instance=ExtResource("9_h28r4")]
+
+[node name="Saeb_quest" parent="Quest" instance=ExtResource("12_b2sct")]
+
+[node name="MissaoDialogo" parent="Quest" instance=ExtResource("14_l502o")]
+
+[node name="Mini_quest" parent="Quest" instance=ExtResource("14_d0ggg")]
+
+[node name="DesafioFinal_quest" parent="Quest" instance=ExtResource("14_gxej0")]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="macyDialoago" parent="Interface" instance=ExtResource("18_icve5")]
+
+[node name="EntrarNoBarco" parent="." instance=ExtResource("18_f076y")]
+offset_left = 735.0
+offset_top = 234.0
+offset_right = 775.0
+offset_bottom = 274.0

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8wi6roijyvcb"]
+
+[ext_resource type="Texture2D" uid="uid://05i1fsc4d7ci" path="res://Tela de Início/background_image.PNG" id="1_5oga7"]
+[ext_resource type="Script" uid="uid://bxv1tt2ggd717" path="res://Tela de Início/scripts (Tela de Início)/home_screen.gd" id="1_nnpr1"]
+[ext_resource type="Texture2D" uid="uid://byy0t621s3cu8" path="res://icon.svg" id="2_s7rog"]
+[ext_resource type="Texture2D" uid="uid://crujaovv58a2v" path="res://Tela de Início/1.png" id="3_6reg1"]
+[ext_resource type="Texture2D" uid="uid://cujtvl41y4oso" path="res://Tela de Início/2.png" id="4_nnpr1"]
+[ext_resource type="Texture2D" uid="uid://ctcmlhehumllb" path="res://Tela de Início/3.png" id="5_fftwe"]
+
+[node name="TelaInicio" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nnpr1")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1172.0
+offset_bottom = 666.0
+texture = ExtResource("1_5oga7")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Principal" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 1172.0
+offset_bottom = 647.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+localize_numeral_system = false
+
+[node name="Logo" type="TextureRect" parent="Principal"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("2_s7rog")
+stretch_mode = 3
+
+[node name="Botoes" type="HBoxContainer" parent="Principal"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 65
+alignment = 1
+
+[node name="play" type="Button" parent="Principal/Botoes"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+icon = ExtResource("3_6reg1")
+flat = true
+
+[node name="config" type="Button" parent="Principal/Botoes"]
+layout_mode = 2
+icon = ExtResource("4_nnpr1")
+flat = true
+
+[node name="sair" type="Button" parent="Principal/Botoes"]
+layout_mode = 2
+icon = ExtResource("5_fftwe")
+flat = true
+
+[connection signal="pressed" from="Principal/Botoes/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Principal/Botoes/config" to="." method="_on_config_pressed"]
+[connection signal="pressed" from="Principal/Botoes/sair" to="." method="_on_sair_pressed"]

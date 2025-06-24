@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvderco4b1g42"]
+
+[ext_resource type="Script" uid="uid://dns6pw7mytj7" path="res://Tela de Início/scripts (Tela de Início)/escolher_personagem.gd" id="1_xsysw"]
+[ext_resource type="FontFile" uid="uid://bldtxaiaxx772" path="res://delta rpg (assets)/minecraft/Minecraft.ttf" id="2_b6b74"]
+[ext_resource type="Texture2D" uid="uid://dbujpfr5bg6ba" path="res://Tela de Início/img_pixel_lagoa02.png" id="2_xsysw"]
+[ext_resource type="Texture2D" uid="uid://blyh3eayrwbbb" path="res://Tela de Início/Escolher Personagem/fem_parda_frente.png" id="4_43w76"]
+[ext_resource type="Texture2D" uid="uid://d1gx5kupbf3gh" path="res://Tela de Início/Escolher Personagem/masc_parado_frente.png" id="5_43w76"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2ioj"]
+bg_color = Color(0.243137, 0.164706, 0.0431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43w76"]
+bg_color = Color(0.713726, 0.490196, 0.141176, 1)
+expand_margin_left = 8.0
+expand_margin_top = 11.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsysw"]
+bg_color = Color(0.713726, 0.490196, 0.141176, 1)
+expand_margin_left = 8.0
+expand_margin_top = 11.0
+expand_margin_right = 10.0
+
+[node name="EscolherPersonagem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xsysw")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 657.0
+texture = ExtResource("2_xsysw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_right = 33.0
+offset_bottom = 741.0
+grow_horizontal = 2
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_b6b74")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2ioj")
+text = "VOLTAR"
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b6b74")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxFlat_43w76")
+text = "DIgite seu nome:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_b6b74")
+theme_override_font_sizes/font_size = 55
+placeholder_text = "NOME"
+alignment = 1
+max_length = 8
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b6b74")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxFlat_xsysw")
+text = "Escolha seu personagem:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme_override_constants/separation = -10
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = -125
+
+[node name="Girl" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("4_43w76")
+stretch_mode = 5
+flip_h = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -125
+
+[node name="Boy" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("5_43w76")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="text_submitted" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/MarginContainer/Girl" to="." method="_on_girl_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/MarginContainer/Girl" to="." method="_on_girl_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/Girl" to="." method="_on_girl_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/MarginContainer2/Boy" to="." method="_on_boy_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/MarginContainer2/Boy" to="." method="_on_boy_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer2/Boy" to="." method="_on_boy_pressed"]

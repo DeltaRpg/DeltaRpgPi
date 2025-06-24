@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dndhqaywwusfm"]
+
+[ext_resource type="Script" uid="uid://lakcyj4d5jyo" path="res://Scripts/final.gd" id="1_d8jly"]
+[ext_resource type="PackedScene" uid="uid://chssjkm66nmrx" path="res://Scenes/mapa.tscn" id="1_g7tkt"]
+[ext_resource type="PackedScene" uid="uid://c0u7ry3nc2tgo" path="res://Scenes/Final/whashington.tscn" id="3_d8jly"]
+[ext_resource type="PackedScene" uid="uid://n4r1nnbdgvca" path="res://Scenes/Final/rafael.tscn" id="4_qadtk"]
+[ext_resource type="PackedScene" uid="uid://byqq0ygbc5grl" path="res://Scenes/Fases/dialogo_final_r.tscn" id="5_ch4ql"]
+[ext_resource type="PackedScene" uid="uid://bjba6xfsdq0g5" path="res://Scenes/Fases/dialogo_final_w.tscn" id="6_bkh8q"]
+
+[node name="Final" type="Node2D"]
+script = ExtResource("1_d8jly")
+
+[node name="Mapa" parent="." instance=ExtResource("1_g7tkt")]
+position = Vector2(-1218, 56)
+
+[node name="Whashington" parent="." instance=ExtResource("3_d8jly")]
+position = Vector2(611, 207)
+
+[node name="Rafael" parent="." instance=ExtResource("4_qadtk")]
+position = Vector2(547, 260)
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(575, 340)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="DialogoFinalR" parent="Interface" instance=ExtResource("5_ch4ql")]
+
+[node name="DialogoFinalW" parent="Interface" instance=ExtResource("6_bkh8q")]

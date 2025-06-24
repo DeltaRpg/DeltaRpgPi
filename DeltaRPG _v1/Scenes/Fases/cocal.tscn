@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpu0eicftx5am"]
+
+[ext_resource type="Script" uid="uid://bceu8ogus2ec6" path="res://Scenes/Fases/cocal.gd" id="1_257j6"]
+[ext_resource type="Texture2D" uid="uid://bcki0k2pym4yb" path="res://delta rpg (assets)/animais/Basic Asset Pack/Basic Animal Animations/Clucking Chicken/CluckingChicken.png" id="2_f0rr6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4piju"]
+radius = 18.0278
+
+[node name="cocal" type="Area2D"]
+script = ExtResource("1_257j6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f0rr6")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4piju")
+script = ExtResource("1_257j6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
